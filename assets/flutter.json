@@ -1,0 +1,48 @@
+[
+    {
+        "1": "Which of these is not an example of a Stateful Widget ? 1",
+        "2": "Which of the following is not true about Stateful Widget in flutter ? 2",
+        "3": "What type of animation allows you to represent real-world behaviour in flutter ? 3",
+        "4": "Which of these is use to declare a value held by a variable when there is no intention to change the value ? 4",
+        "5": "Which of the following is not a built in data type in Dart ? 5"
+    },
+    {
+        "1": {
+            "a": "Checkbox",
+            "b": "Slider",
+            "c": "Text",
+            "d": "TextField"
+        },
+        "2": {
+            "a": "It is dynamic",
+            "b": "It allows refreshing of screen",
+            "c": "It has no build() method",
+            "d": "It is static"
+        },
+        "3": {
+            "a": "Physics-based",
+            "b": "Photo-based",
+            "c": "Color-based",
+            "d": "String-based"
+        },
+        "4": {
+            "a": "int",
+            "b": "bool",
+            "c": "final int",
+            "d": "string"
+        },
+        "5": {
+            "a": "Booleans",
+            "b": "Var",
+            "c": "Lists",
+            "d": "Maps"
+        }
+    },
+    {
+        "1": "Text",
+        "2": "It is static",
+        "3": "Physics-based",
+        "4": "final int",
+        "5": "Var"
+    }
+]
