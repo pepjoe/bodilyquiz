@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
           ));
         },
         child: Material(
-          color: Colors.indigoAccent,
+          color: Colors.deepPurpleAccent,
           elevation: 10.0,
           borderRadius: BorderRadius.circular(25.0),
           child: Container(
@@ -76,9 +76,9 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(
                         fontSize: 18.0,
                         color: Colors.white,
-                        fontFamily: "Alike"
+                        fontFamily: "Nunito"
                     ),
-                    maxLines: 5,
+                    maxLines: 7,
                     textAlign: TextAlign.justify,
                   ),
 

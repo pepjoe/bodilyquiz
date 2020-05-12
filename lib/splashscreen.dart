@@ -22,14 +22,14 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.purpleAccent,
+      backgroundColor: Colors.deepPurpleAccent,
       body: Center(
         child: Text(
           "Bodily Quiz\nTest Yourself !!",
           style: TextStyle(
             fontSize: 50.0,
             color: Colors.white,
-            fontFamily: "Satisfy",
+            fontFamily: "Nunito",
           ),
           textAlign: TextAlign.center,
         ),

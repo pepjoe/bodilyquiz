@@ -53,7 +53,7 @@ class _QuizScreenState extends State<QuizScreen> {
   var MyData;
   _QuizScreenState(this.MyData);
 
-  Color colortoshow = Colors.pinkAccent;
+  Color colortoshow = Colors.deepPurpleAccent;
   Color right = Colors.green;
   Color wrong = Colors.red;
   int marks = 0;
@@ -64,10 +64,10 @@ class _QuizScreenState extends State<QuizScreen> {
   var random_array;
 
   Map<String, Color> btncolor = {
-    "a": Colors.pinkAccent,
-    "b": Colors.pinkAccent,
-    "c": Colors.pinkAccent,
-    "d": Colors.pinkAccent,
+    "a": Colors.deepPurpleAccent,
+    "b": Colors.deepPurpleAccent,
+    "c": Colors.deepPurpleAccent,
+    "d": Colors.deepPurpleAccent,
   };
 
   bool canceltimer = false;
@@ -130,10 +130,10 @@ class _QuizScreenState extends State<QuizScreen> {
           builder: (context) => ScorePage(marks: marks),
         ));
       }
-      btncolor["a"] = Colors.pinkAccent;
-      btncolor["b"] = Colors.pinkAccent;
-      btncolor["c"] = Colors.pinkAccent;
-      btncolor["d"] = Colors.pinkAccent;
+      btncolor["a"] = Colors.deepPurpleAccent;
+      btncolor["b"] = Colors.deepPurpleAccent;
+      btncolor["c"] = Colors.deepPurpleAccent;
+      btncolor["d"] = Colors.deepPurpleAccent;
     });
     starttimer();
   }
@@ -165,14 +165,14 @@ class _QuizScreenState extends State<QuizScreen> {
           MyData[1][i.toString()][k],
           style: TextStyle(
             color: Colors.white,
-            fontFamily: "Alike",
+            fontFamily: "Nunito",
             fontSize: 16.0,
           ),
           maxLines: 1,
         ),
         color: btncolor[k],
-        splashColor: Colors.pink[700],
-        highlightColor: Colors.pink[700],
+        splashColor: Colors.deepPurple[700],
+        highlightColor: Colors.deepPurple[700],
         minWidth: 200.0,
         height: 45.0,
         shape:
@@ -218,7 +218,7 @@ class _QuizScreenState extends State<QuizScreen> {
                   MyData[0][i.toString()],
                   style: TextStyle(
                     fontSize: 16.0,
-                    fontFamily: "Quando",
+                    fontFamily: "Nunito",
                   ),
                 ),
               ),
@@ -247,7 +247,7 @@ class _QuizScreenState extends State<QuizScreen> {
                     style: TextStyle(
                       fontSize: 35.0,
                       fontWeight: FontWeight.w700,
-                      fontFamily: 'Times New Roman',
+                      fontFamily: 'Nunito',
                     ),
                   ),
                 ),

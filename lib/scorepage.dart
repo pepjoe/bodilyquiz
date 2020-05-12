@@ -11,9 +11,9 @@ class ScorePage extends StatefulWidget {
 class _ScorePageState extends State<ScorePage> {
 
   List<String> images = [
-    "images/success.png",
-    "images/good.png",
-    "images/bad.png",
+    "assets/images/success.png",
+    "assets/images/good.png",
+    "assets/images/bad.png",
   ];
 
   String message;
@@ -76,7 +76,7 @@ class _ScorePageState extends State<ScorePage> {
                             message,
                             style: TextStyle(
                               fontSize: 18.0,
-                              fontFamily: "Quando",
+                              fontFamily: "Nunito",
                             ),
                           ),
                         )
@@ -107,8 +107,8 @@ class _ScorePageState extends State<ScorePage> {
                     vertical: 10.0,
                     horizontal: 25.0,
                   ),
-                  borderSide: BorderSide(width: 3.0, color: Colors.pink),
-                  splashColor: Colors.pinkAccent,
+                  borderSide: BorderSide(width: 3.0, color: Colors.deepPurple),
+                  splashColor: Colors.deepPurpleAccent,
                 )
               ],
             ),
