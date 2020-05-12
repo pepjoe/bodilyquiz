@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
+import 'package:bodilyquiz/navbutton/nextbutton.dart';
 import 'package:flutter/services.dart';
 import 'package:bodilyquiz/scorepage.dart';
 
@@ -26,6 +27,7 @@ class getjson extends StatelessWidget {
       builder: (context, snapshot) {
         List MyData = json.decode(snapshot.data.toString());
         if (MyData == null) {
+          debugPrint('File failed to load');
           return Scaffold(
             body: Center(
               child: Text(
@@ -34,6 +36,7 @@ class getjson extends StatelessWidget {
             ),
           );
         } else {
+          debugPrint('Filed loaded!');
           return QuizScreen(MyData: MyData);
         }
       },
@@ -59,9 +62,6 @@ class _QuizScreenState extends State<QuizScreen> {
   int marks = 0;
   int i = 1;
   int j = 1;
-  int timer = 30;
-  String showtimer = "30";
-  var random_array;
 
   Map<String, Color> btncolor = {
     "a": Colors.deepPurpleAccent,
@@ -70,27 +70,8 @@ class _QuizScreenState extends State<QuizScreen> {
     "d": Colors.deepPurpleAccent,
   };
 
-  bool canceltimer = false;
-
-  genrandomarray(){
-    var distinctIds = [];
-    var rand = new Random();
-    for (int i = 0; ;) {
-      distinctIds.add(rand.nextInt(5));
-      random_array = distinctIds.toSet().toList();
-      if(random_array.length < 5){
-        continue;
-      }else{
-        break;
-      }
-    }
-    print(random_array);
-  }
-
   @override
   void initState() {
-    starttimer();
-    genrandomarray();
     super.initState();
   }
 
@@ -101,29 +82,10 @@ class _QuizScreenState extends State<QuizScreen> {
     }
   }
 
-  void starttimer() async {
-    const onesec = Duration(seconds: 1);
-    Timer.periodic(onesec, (Timer t) {
-      setState(() {
-        if (timer < 1) {
-          t.cancel();
-          nextquestion();
-        } else if (canceltimer == true) {
-          t.cancel();
-        } else {
-          timer = timer - 1;
-        }
-        showtimer = timer.toString();
-      });
-    });
-  }
-
-  void nextquestion() {
-    canceltimer = false;
-    timer = 30;
+  void nextQuestion() {
     setState(() {
-      if (j < 5) {
-        i = random_array[j];
+      if (j < 6) {
+        i = j;
         j++;
       } else {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
@@ -135,10 +97,9 @@ class _QuizScreenState extends State<QuizScreen> {
       btncolor["c"] = Colors.deepPurpleAccent;
       btncolor["d"] = Colors.deepPurpleAccent;
     });
-    starttimer();
   }
 
-  void checkanswer(String k) {
+  void checkAnswer(String k) {
     if (MyData[2][i.toString()] == MyData[1][i.toString()][k]) {
       marks = marks + 5;
       colortoshow = right;
@@ -147,20 +108,17 @@ class _QuizScreenState extends State<QuizScreen> {
     }
     setState(() {
       btncolor[k] = colortoshow;
-      canceltimer = true;
     });
-
-    Timer(Duration(seconds: 1), nextquestion);
   }
 
-  Widget choicebutton(String k) {
+  Widget choiceButton(String k) {
     return Padding(
       padding: EdgeInsets.symmetric(
         vertical: 10.0,
         horizontal: 20.0,
       ),
       child: MaterialButton(
-        onPressed: () => checkanswer(k),
+        onPressed: () => checkAnswer(k),
         child: Text(
           MyData[1][i.toString()][k],
           style: TextStyle(
@@ -191,7 +149,7 @@ class _QuizScreenState extends State<QuizScreen> {
             context: context,
             builder: (context) => AlertDialog(
               title: Text(
-                "Bodilyquiz",
+                "Complete the flutter Bodilyquiz",
               ),
               content: Text("You Can't Go Back At This Stage."),
               actions: <Widget>[
@@ -229,30 +187,23 @@ class _QuizScreenState extends State<QuizScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    choicebutton('a'),
-                    choicebutton('b'),
-                    choicebutton('c'),
-                    choicebutton('d'),
+                    choiceButton('a'),
+                    choiceButton('b'),
+                    choiceButton('c'),
+                    choiceButton('d'),
                   ],
                 ),
               ),
             ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                alignment: Alignment.topCenter,
-                child: Center(
-                  child: Text(
-                    showtimer,
-                    style: TextStyle(
-                      fontSize: 35.0,
-                      fontWeight: FontWeight.w700,
-                      fontFamily: 'Nunito',
-                    ),
-                  ),
+            Container(
+                alignment: Alignment.topRight,
+                child: RaisedButton(
+                  onPressed: () {
+                    nextQuestion();
+                  },
+                  child: NextButton(text:'NEXT'),
                 ),
-              ),
-            ),
+            )
           ],
         ),
       ),

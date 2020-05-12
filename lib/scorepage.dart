@@ -11,8 +11,8 @@ class ScorePage extends StatefulWidget {
 class _ScorePageState extends State<ScorePage> {
 
   List<String> images = [
+    "assets/images/success.jpg",
     "assets/images/success.png",
-    "assets/images/good.png",
     "assets/images/bad.png",
   ];
 
@@ -21,10 +21,10 @@ class _ScorePageState extends State<ScorePage> {
 
   @override
   void initState(){
-    if(marks < 20){
+    if(marks < 12){
       image = images[2];
       message = "You Should Try Hard..\n" + "You Scored $marks";
-    }else if(marks < 35){
+    }else if(marks < 25){
       image = images[1];
       message = "You Can Do Better..\n" + "You Scored $marks";
     }else{
